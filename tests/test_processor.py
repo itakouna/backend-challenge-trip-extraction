@@ -14,3 +14,11 @@ class TestProcessor():
         list_processor = WaypointListProcessor([])
         assert list_processor._car_in_move(
             current_point, next_point) == expected
+
+    @pytest.mark.parametrize("points, expected", [
+        ([Waypoint("2018-08-10T20:04:22Z", 52.54987, 12.41039),
+          Waypoint("2018-08-10T20:04:22Z", 51.54987, 12.41039)], False)
+    ])
+    def test_car_trip_has_ended(self, points, expected):
+        list_processor = WaypointListProcessor([])
+        assert list_processor._car_trip_has_ended(points) == expected
