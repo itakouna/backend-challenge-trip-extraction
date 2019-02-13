@@ -1,6 +1,7 @@
 from abc import ABCMeta, abstractmethod
 from datetime import datetime
 from typing import Union, NamedTuple, Tuple
+from lib.geo import GeoAdapter, GeopyLibrary
 
 
 class Waypoint(NamedTuple):
@@ -49,3 +50,13 @@ class StreamProcessor(metaclass=ABCMeta):
         :param waypoint: Waypoint
         """
         ...
+
+
+class WaypointListProcessor(ListProcessor):
+
+    def __init__(self, waypoints):
+        self._geo = GeoAdapter(GeopyLibrary())
+        super().__init__(waypoints)
+
+    def get_trips(self) -> Tuple[Trip]:
+        pass
