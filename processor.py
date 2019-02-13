@@ -58,5 +58,9 @@ class WaypointListProcessor(ListProcessor):
         self._geo = GeoAdapter(GeopyLibrary())
         super().__init__(waypoints)
 
+    def _car_in_move(self, current_point: Waypoint, next_point: Waypoint) -> bool:
+        return (current_point.lat != next_point.lat or
+                current_point.lng != next_point.lng)
+
     def get_trips(self) -> Tuple[Trip]:
         pass
