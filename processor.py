@@ -54,6 +54,7 @@ class StreamProcessor(metaclass=ABCMeta):
 
 class WaypointListProcessor(ListProcessor):
     STOP_TIME_IN_MINTUES = 3
+    DISTANCE_SHOULD_BE_IGNORED_METERS = 15
 
     def __init__(self, waypoints):
         self._geo = GeoAdapter(GeopyLibrary())
@@ -64,7 +65,12 @@ class WaypointListProcessor(ListProcessor):
         return (current_point.lat != next_point.lat or
                 current_point.lng != next_point.lng)
 
-    def _trip_has_ended(self, stop_points: Waypoint) -> bool:
+    def _last_value_in_list(self,
+                            next_point: Waypoint,
+                            last_point: Waypoint) -> bool:
+        return next_point == last_point
+
+    def _car_trip_has_ended(self, stop_points: Waypoint) -> bool:
         if len(stop_points) < 2:
             return False
 
@@ -75,4 +81,42 @@ class WaypointListProcessor(ListProcessor):
         return time_difference.total_seconds()/60 > self.STOP_TIME_IN_MINTUES
 
     def get_trips(self) -> Tuple[Trip]:
-        pass
+        trips = []
+        stop_points = []
+        move_points = []
+        distance = 0
+        current_point = self._waypoints[0]
+        last_point = self._waypoints[-1]
+
+        for next_point in self._waypoints[1:]:
+            distance += self._geo.compute_distance_in_meters(
+                current_point, next_point)
+
+            if self._car_in_move(current_point, next_point):
+                move_points.append(current_point)
+                move_points.append(next_point)
+            else:
+                stop_points.append(current_point)
+                stop_points.append(next_point)
+
+            if (self._car_trip_has_ended(stop_points) or
+                    self._last_value_in_list(next_point, last_point)):
+
+                if len(stop_points) == 0:
+                    end_point = move_points[-1]
+                else:
+                    end_point = stop_points[0]
+                if (distance >= self.DISTANCE_SHOULD_BE_IGNORED_METERS):
+                    trips.append(
+                        Trip(distance, move_points[0], end_point))
+
+                distance = 0
+                if len(stop_points) > 0:
+                    move_points = [stop_points[-1]]
+                else:
+                    move_points = []
+                stop_points = []
+
+            current_point = next_point
+
+        return trips
