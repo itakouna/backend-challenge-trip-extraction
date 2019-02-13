@@ -53,14 +53,26 @@ class StreamProcessor(metaclass=ABCMeta):
 
 
 class WaypointListProcessor(ListProcessor):
+    STOP_TIME_IN_MINTUES = 3
 
     def __init__(self, waypoints):
         self._geo = GeoAdapter(GeopyLibrary())
         super().__init__(waypoints)
 
-    def _car_in_move(self, current_point: Waypoint, next_point: Waypoint) -> bool:
+    def _car_in_move(self,
+                     current_point: Waypoint, next_point: Waypoint) -> bool:
         return (current_point.lat != next_point.lat or
                 current_point.lng != next_point.lng)
+
+    def _trip_has_ended(self, stop_points: Waypoint) -> bool:
+        if len(stop_points) < 2:
+            return False
+
+        time_difference = datetime.strptime(
+            stop_points[-1].timestamp, "%Y-%m-%dT%H:%M:%S%z") - \
+            datetime.strptime(
+            stop_points[0].timestamp, "%Y-%m-%dT%H:%M:%S%z")
+        return time_difference.total_seconds()/60 > self.STOP_TIME_IN_MINTUES
 
     def get_trips(self) -> Tuple[Trip]:
         pass
