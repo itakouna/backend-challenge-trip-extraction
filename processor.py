@@ -52,6 +52,72 @@ class StreamProcessor(metaclass=ABCMeta):
         ...
 
 
+class WaypointStreamProcessor(StreamProcessor):
+    STOP_TIME_IN_MINTUES = 3
+    DISTANCE_SHOULD_BE_IGNORED_METERS = 15
+
+    def __init__(self):
+        self._geo = GeoAdapter(GeopyLibrary())
+        self.stop_points = []
+        self.move_points = []
+        self.current_point = None
+        self.next_point = None
+        self.distance = 0.0
+        self.trip = None
+
+    def _car_in_move(self,
+                     current_point: Waypoint, next_point: Waypoint) -> bool:
+        return (current_point.lat != next_point.lat or
+                current_point.lng != next_point.lng)
+
+    def _car_trip_has_ended(self, stop_points: Waypoint) -> bool:
+        if len(stop_points) < 2:
+            return False
+
+        time_difference = datetime.strptime(
+            stop_points[-1].timestamp, "%Y-%m-%dT%H:%M:%S%z") - \
+            datetime.strptime(
+            stop_points[0].timestamp, "%Y-%m-%dT%H:%M:%S%z")
+        return time_difference.total_seconds()/60 > self.STOP_TIME_IN_MINTUES
+
+    def process_waypoint(self, waypoint: Waypoint) -> Union[Trip, None]:
+        self.trip = None
+
+        if not any([self.current_point, self.next_point]):
+            self.next_point = waypoint
+            self.current_point = waypoint
+        else:
+            self.current_point = self.next_point
+            self.next_point = waypoint
+
+        self.distance += self._geo.compute_distance_in_meters(
+            self.current_point, self.next_point)
+
+        if self._car_in_move(self.current_point, self.next_point):
+            self.move_points.append(self.current_point)
+            self.move_points.append(self.next_point)
+
+        elif len(self.move_points) != 0:
+            # if car had moved before it has stopped
+            self.stop_points.append(self.current_point)
+            self.stop_points.append(self.next_point)
+
+        if self._car_trip_has_ended(self.stop_points):
+            # only add a trip with total distance >= 15 meters
+            # the start and end point should not be the same
+            if (self.distance >= self.DISTANCE_SHOULD_BE_IGNORED_METERS):
+                start_point = self.move_points[0]
+                end_point = self.move_points[-1]
+                self.trip = Trip(self.distance, start_point, end_point)
+
+                # Starting next trip
+                # The last stop point should be the begining of the next trip
+                self.move_points = self.stop_points[-1:]
+                self.stop_points = []
+                self.distance = 0
+        return self.trip
+
+
 class WaypointListProcessor(ListProcessor):
     STOP_TIME_IN_MINTUES = 3
     DISTANCE_SHOULD_BE_IGNORED_METERS = 15
@@ -120,3 +186,4 @@ class WaypointListProcessor(ListProcessor):
             current_point = next_point
 
         return trips
+# pytest -v --cov=.  tests/
