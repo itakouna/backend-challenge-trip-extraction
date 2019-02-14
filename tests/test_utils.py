@@ -1,6 +1,5 @@
 from processor import Waypoint, Trip
 from utils import trip_waypoint_format
-import pytest
 
 
 class TestUtils():
