@@ -2,3 +2,5 @@
 .pytest_cache
 _pycache__/
 *.pyc
+.coverage
+.coveragerc
