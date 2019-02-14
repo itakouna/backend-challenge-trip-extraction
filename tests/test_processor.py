@@ -40,7 +40,7 @@ class TestProcessor():
         list_processor = WaypointListProcessor(waypoints)
         assert list_processor.get_trips() == [
             Trip(
-                distance=567942.9577481565,
+                distance=567942.9577497243,
                 start=Waypoint(timestamp='2018-08-10T20:10:22Z',
                                lat=54.54987, lng=12.41039),
                 end=Waypoint(timestamp='2018-08-10T20:22:22Z',
@@ -59,12 +59,12 @@ class TestProcessor():
         ]
         list_processor = WaypointListProcessor(waypoints)
         assert list_processor.get_trips() == [
-            Trip(distance=222593.12419555362,
+            Trip(distance=222593.124196202,
                  start=Waypoint(timestamp='2018-08-10T20:04:22Z',
                                 lat=52.54987, lng=12.41039),
                  end=Waypoint(timestamp='2018-08-10T20:06:22Z',
                               lat=54.54987, lng=12.41039)),
-            Trip(distance=556802.4117337333,
+            Trip(distance=556802.4117352704,
                  start=Waypoint(timestamp='2018-08-10T20:10:22Z',
                                 lat=54.54987, lng=12.41039),
                  end=Waypoint(timestamp='2018-08-10T20:17:22Z',
@@ -86,7 +86,7 @@ class TestProcessor():
         ]
         list_processor = WaypointListProcessor(waypoints)
         assert list_processor.get_trips() == [
-            Trip(distance=779395.5359292869,
+            Trip(distance=779395.5359314724,
                  start=Waypoint(timestamp='2018-08-10T20:10:22Z',
                                 lat=52.54987, lng=12.41039),
                  end=Waypoint(timestamp='2018-08-10T20:17:22Z', lat=59.54987, lng=12.41039))]
@@ -108,7 +108,7 @@ class TestProcessor():
         ]
         list_processor = WaypointListProcessor(waypoints)
         assert list_processor.get_trips() == [
-            Trip(distance=1125.0192831925704,
+            Trip(distance=1125.0192831976556,
                  start=Waypoint(timestamp='2018-08-10T20:04:22Z',
                                 lat=52.54987, lng=12.41039),
                  end=Waypoint(timestamp='2018-08-10T20:10:22Z',

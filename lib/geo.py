@@ -1,5 +1,5 @@
 import abc
-from geopy.distance import vincenty
+from geopy.distance import distance
 from pyproj import Geod
 
 
@@ -33,7 +33,7 @@ class GeopyLibrary:
 
     def compute_distance_in_meters(self, origin, destination):
 
-        return vincenty((origin.lat, origin.lng),
+        return distance((origin.lat, origin.lng),
                         (destination.lat, destination.lng)).meters
 
 
