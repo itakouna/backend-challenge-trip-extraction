@@ -95,27 +95,27 @@ class WaypointListProcessor(ListProcessor):
             if self._car_in_move(current_point, next_point):
                 move_points.append(current_point)
                 move_points.append(next_point)
-            else:
+
+            elif len(move_points) != 0:
+                # if car had moved before it has stopped
                 stop_points.append(current_point)
                 stop_points.append(next_point)
 
             if (self._car_trip_has_ended(stop_points) or
                     self._last_value_in_list(next_point, last_point)):
 
-                if len(stop_points) == 0:
-                    end_point = move_points[-1]
-                else:
-                    end_point = stop_points[0]
+                # only add a trip with total distance >= 15 meters
+                # the start and end point should not be the same
                 if (distance >= self.DISTANCE_SHOULD_BE_IGNORED_METERS):
-                    trips.append(
-                        Trip(distance, move_points[0], end_point))
+                    start_point = move_points[0]
+                    end_point = move_points[-1]
+                    trips.append(Trip(distance, start_point, end_point))
 
-                distance = 0
-                if len(stop_points) > 0:
-                    move_points = [stop_points[-1]]
-                else:
-                    move_points = []
+                # Starting next trip
+                # The last stop point should be the begining of the next trip
+                move_points = stop_points[-1:]
                 stop_points = []
+                distance = 0
 
             current_point = next_point
 

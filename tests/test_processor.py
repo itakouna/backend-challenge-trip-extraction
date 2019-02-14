@@ -71,6 +71,26 @@ class TestProcessor():
                               lat=59.54987, lng=12.41039))
         ]
 
+    def test_get_trip_with_list_beginning_with_same_points(self):
+        # List beginning with same points, which means that
+        # the car has not moved yet
+        waypoints = [
+            Waypoint("2018-08-10T20:04:22Z", 52.54987, 12.41039),
+            Waypoint("2018-08-10T20:06:22Z", 52.54987, 12.41039),
+            Waypoint("2018-08-10T20:08:22Z", 52.54987, 12.41039),
+            Waypoint("2018-08-10T20:10:22Z", 52.54987, 12.41039),
+            Waypoint("2018-08-10T20:15:22Z", 57.54987, 12.41039),
+            Waypoint("2018-08-10T20:16:22Z", 58.54987, 12.41039),
+            Waypoint("2018-08-10T20:17:22Z", 59.54987, 12.41039),
+            Waypoint("2018-08-10T20:18:22Z", 59.54987, 12.41039)
+        ]
+        list_processor = WaypointListProcessor(waypoints)
+        assert list_processor.get_trips() == [
+            Trip(distance=779395.5359292869,
+                 start=Waypoint(timestamp='2018-08-10T20:10:22Z',
+                                lat=52.54987, lng=12.41039),
+                 end=Waypoint(timestamp='2018-08-10T20:17:22Z', lat=59.54987, lng=12.41039))]
+
     def test_get_trip_distance_less_15m(self):
         waypoints = [
             Waypoint("2018-08-10T20:04:22Z", 52.54987, 12.41039),
