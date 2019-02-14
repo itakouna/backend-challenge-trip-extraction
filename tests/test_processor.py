@@ -33,12 +33,12 @@ class TestWaypointListProcessor(FixtureTestWaypointListProcessor):
         list_processor = WaypointListProcessor([])
         assert list_processor._car_trip_has_ended(points) == expected
 
-    def test_list_with_non_stop_point(self):
+    def test_list_without_stoping_point(self):
         list_processor = WaypointListProcessor(
-            self.waypoints_list_with_non_stop_point)
+            self.waypoints_list_without_stoping_point)
         assert list_processor.get_trips() == [
             Trip(
-                distance=567942.9577497243,
+                distance=567954.0964794011,
                 start=Waypoint(timestamp='2018-08-10T20:10:22Z',
                                lat=54.54987, lng=12.41039),
                 end=Waypoint(timestamp='2018-08-10T20:22:22Z',

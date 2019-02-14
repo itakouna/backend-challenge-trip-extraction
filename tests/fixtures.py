@@ -2,11 +2,11 @@ from processor import Waypoint
 
 
 class FixtureTestWaypointListProcessor():
-    waypoints_list_with_non_stop_point = [
+    waypoints_list_without_stoping_point = [
         Waypoint("2018-08-10T20:10:22Z", 54.54987, 12.41039),
         Waypoint("2018-08-10T20:15:22Z", 57.54987, 12.41039),
         Waypoint("2018-08-10T20:16:22Z", 58.54987, 12.41039),
-        Waypoint("2018-08-10T20:17:22Z", 59.54987, 12.41039),
+        Waypoint("2018-08-10T20:17:22Z", 58.54982, 12.41039),
         Waypoint("2018-08-10T20:22:22Z", 59.64987, 12.41039)
     ]
 
