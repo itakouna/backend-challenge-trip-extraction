@@ -1,5 +1,6 @@
 from processor import WaypointListProcessor, WaypointStreamProcessor
-from utils import load_from_json_file, convert_data_to_waypoints, trip_waypoint_format
+from utils import (load_from_json_file, convert_data_to_waypoints,
+                   trip_waypoint_format)
 import argparse
 
 
@@ -11,7 +12,8 @@ def main():
     parser.add_argument('--list', action='store_true',
                         help='extrace trips from a list of Waypoints')
     parser.add_argument('--source', dest='source',
-                        help='data source file with vaild json format', required=True)
+                        help='data source file with vaild json format',
+                        required=True)
     args = parser.parse_args()
 
     data_json = load_from_json_file(args.source)

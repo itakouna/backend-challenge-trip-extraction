@@ -94,13 +94,14 @@ class WaypointStreamProcessor(StreamProcessor):
             self.current_point, self.next_point)
 
         if self._car_in_move(self.current_point, self.next_point):
-            self.move_points.append(self.current_point)
-            self.move_points.append(self.next_point)
+            # only keep the last two point
+            self.move_points = self.move_points[:2]
+            self.move_points.extend([self.current_point, self.next_point])
 
         elif len(self.move_points) != 0:
             # if car had moved before it has stopped
-            self.stop_points.append(self.current_point)
-            self.stop_points.append(self.next_point)
+            self.stop_points = self.stop_points[:2]
+            self.stop_points.extend([self.current_point, self.next_point])
 
         if self._car_trip_has_ended(self.stop_points):
             # only add a trip with total distance >= 15 meters
@@ -110,11 +111,11 @@ class WaypointStreamProcessor(StreamProcessor):
                 end_point = self.move_points[-1]
                 self.trip = Trip(self.distance, start_point, end_point)
 
-                # Starting next trip
-                # The last stop point should be the begining of the next trip
-                self.move_points = self.stop_points[-1:]
-                self.stop_points = []
-                self.distance = 0
+            # Starting next trip
+            # The last stop point should be the begining of the next trip
+            self.move_points = self.stop_points[-1:]
+            self.stop_points = []
+            self.distance = 0.0
         return self.trip
 
 
@@ -159,13 +160,14 @@ class WaypointListProcessor(ListProcessor):
                 current_point, next_point)
 
             if self._car_in_move(current_point, next_point):
-                move_points.append(current_point)
-                move_points.append(next_point)
+                # only keep the last two point
+                move_points = move_points[:2]
+                move_points.extend([current_point, next_point])
 
             elif len(move_points) != 0:
                 # if car had moved before it has stopped
-                stop_points.append(current_point)
-                stop_points.append(next_point)
+                stop_points = stop_points[:2]
+                stop_points.extend([current_point, next_point])
 
             if (self._car_trip_has_ended(stop_points) or
                     self._last_value_in_list(next_point, last_point)):

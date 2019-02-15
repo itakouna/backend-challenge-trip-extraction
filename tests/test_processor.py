@@ -1,5 +1,4 @@
 import pytest
-from utils import trip_waypoint_format
 from processor import (WaypointListProcessor, Waypoint,
                        Trip, WaypointStreamProcessor)
 from tests.fixtures import (FixtureTestWaypointStreamProcessor,
