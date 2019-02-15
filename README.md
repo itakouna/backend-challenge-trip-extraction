@@ -266,6 +266,7 @@ optional arguments:
     'distance': 569.8700245812079
   }
 ]
+
 ```
 - Using list processor `python process.py --list --source data/waypoints.json`
 ```json

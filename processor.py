@@ -188,4 +188,3 @@ class WaypointListProcessor(ListProcessor):
             current_point = next_point
 
         return trips
-# pytest -v --cov=.  tests/
