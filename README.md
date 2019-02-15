@@ -179,6 +179,6 @@ optional arguments:
 - to run stream processor, you need to pass
 
 ## Test coverage
-- You can check test coverage under [a relative link](htmlcov/index.html)
+- You can check test coverage under [htmlcov/index.html](htmlcov/index.html)
 - You can run test coverage
   `pytest -v --cov=.  tests/`
