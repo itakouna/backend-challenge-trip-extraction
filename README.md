@@ -163,7 +163,8 @@ In our review we will focus on:
 ## How to use waypoints processor
 - You can run `setup.sh` script to setup python enviroment.
 - You can check processor help
-```python process.py --help
+```
+python process.py --help
 usage: process.py [-h] [--stream] [--list] --source SOURCE
 
 extrace trips from a stream or list of Waypoints.
@@ -174,9 +175,6 @@ optional arguments:
   --list           extrace trips from a list of Waypoints
   --source SOURCE  data source file with vaild json format
 ```
-- to run list processor, you need to pass
-  python process.py --list --source data/waypoints.json
-- to run stream processor, you need to pass
 
 ## Test coverage
 - You can check test coverage under [htmlcov/index.html](htmlcov/index.html)
