@@ -158,3 +158,27 @@ In our review we will focus on:
 - accuracy – which trips are extraced from the raw data?
 - quality – clean, tested implementation, which follows best practises?
 - performance – how does the implementation behave with a much bigger dataset? 
+
+
+## How to use waypoints processor
+- You can run `setup.sh` script to setup python enviroment.
+- You can check processor help
+`python process.py --help
+usage: process.py [-h] [--stream] [--list] --source SOURCE
+
+extrace trips from a stream or list of Waypoints.
+
+optional arguments:
+  -h, --help       show this help message and exit
+  --stream         extrace trips from a stream of Waypoints
+  --list           extrace trips from a list of Waypoints
+  --source SOURCE  data source file with vaild json format
+`
+- to run list processor, you need to pass
+  python process.py --list --source data/waypoints.json
+- to run stream processor, you need to pass
+
+## Test coverage
+- You can check test coverage under `htmlcov/index.html `
+- You can run test coverage
+  `pytest -v --cov=.  tests/`
