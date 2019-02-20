@@ -43,7 +43,7 @@ especially the distances, timestamps and coordinates vary.
 ### The Vehicle Data
 In this coding challenge our raw vehicle data will be **a stream of GPS 
 coordinates**. In our actual products we process additional data from other 
-sources, for example from the vehicle's on-board computer, to optimize the 
+sources, for example from the vehicle"s on-board computer, to optimize the
 accuracy of our trip extraction process even more.
 
 The GPS stream is included in this repository as a JSON file inside the data
@@ -188,82 +188,82 @@ optional arguments:
 ```json
 [
   {
-    'start': {
-      'timestamp': '2018-08-11T20:12:24Z',
-      'lat': 51.54991,
-      'lng': 12.41036
+    "start": {
+      "timestamp": "2018-08-11T20:12:24Z",
+      "lat": 51.54991,
+      "lng": 12.41036
     },
-    'end': {
-      'timestamp': '2018-08-11T20:17:23Z',
-      'lat': 51.54974,
-      'lng': 12.41036
+    "end": {
+      "timestamp": "2018-08-11T20:17:23Z",
+      "lat": 51.54974,
+      "lng": 12.41036
     },
-    'distance': 25.58952020275142
+    "distance": 25.59
   },
   {
-    'start': {
-      'timestamp': '2018-08-12T10:01:26Z',
-      'lat': 51.54974,
-      'lng': 12.41036
+    "start": {
+      "timestamp": "2018-08-12T10:01:26Z",
+      "lat": 51.54974,
+      "lng": 12.41036
     },
-    'end': {
-      'timestamp': '2018-08-12T10:07:20Z',
-      'lat': 51.55683,
-      'lng': 12.37432
+    "end": {
+      "timestamp": "2018-08-12T10:07:20Z",
+      "lat": 51.55683,
+      "lng": 12.37432
     },
-    'distance': 2903.3650662385558
+    "distance": 2903.365
   },
   {
-    'start': {
-      'timestamp': '2018-08-12T10:07:24Z',
-      'lat': 51.55683,
-      'lng': 12.37432
+    "start": {
+      "timestamp": "2018-08-12T10:07:24Z",
+      "lat": 51.55683,
+      "lng": 12.37432
     },
-    'end': {
-      'timestamp': '2018-08-12T10:26:24Z',
-      'lat': 51.59947,
-      'lng': 12.301
+    "end": {
+      "timestamp": "2018-08-12T10:26:24Z",
+      "lat": 51.59947,
+      "lng": 12.301
     },
-    'distance': 9365.210306853953
+    "distance": 9365.21
   },
   {
-    'start': {
-      'timestamp': '2018-08-12T10:26:30Z',
-      'lat': 51.59947,
-      'lng': 12.301
+    "start": {
+      "timestamp": "2018-08-12T10:26:30Z",
+      "lat": 51.59947,
+      "lng": 12.301
     },
-    'end': {
-      'timestamp': '2018-08-12T10:31:13Z',
-      'lat': 51.60519,
-      'lng': 12.3008
+    "end": {
+      "timestamp": "2018-08-12T10:31:13Z",
+      "lat": 51.60519,
+      "lng": 12.3008
     },
-    'distance': 868.7725034079747
+    "distance": 868.773
   },
   {
-    'start': {
-      'timestamp': '2018-08-12T10:34:25Z',
-      'lat': 51.60519,
-      'lng': 12.30082
+    "start": {
+      "timestamp": "2018-08-12T10:34:25Z",
+      "lat": 51.60519,
+      "lng": 12.30082
     },
-    'end': {
-      'timestamp': '2018-08-12T13:33:46Z',
-      'lat': 51.55938,
-      'lng': 12.41194
+    "end": {
+      "timestamp": "2018-08-12T13:33:46Z",
+      "lat": 51.55938,
+      "lng": 12.41194
     },
-    'distance': 13025.592430709718
+    "distance": 13025.592
   },
   {
-    'start': {
-      'timestamp': '2018-08-12T13:34:00Z',
-      'lat': 51.55938,
-      'lng': 12.41194
+    "start": {
+      "timestamp": "2018-08-12T13:34:00Z",
+      "lat": 51.55938,
+      "lng": 12.41194
     },
-    'end': {
-      'timestamp': '2018-08-12T13:37:47Z',
-      'lat': 51.55472,
-      'lng': 12.41444
+    "end": {
+      "timestamp": "2018-08-12T13:37:47Z",
+      "lat": 51.55472,
+      "lng": 12.41444
     },
-    'distance': 569.8700245812079
+    "distance": 569.87
   }
 ]
 
@@ -272,95 +272,95 @@ optional arguments:
 ```json
 [
   {
-    'start': {
-      'timestamp': '2018-08-11T20:12:24Z',
-      'lat': 51.54991,
-      'lng': 12.41036
+    "start": {
+      "timestamp": "2018-08-11T20:12:24Z",
+      "lat": 51.54991,
+      "lng": 12.41036
     },
-    'end': {
-      'timestamp': '2018-08-11T20:17:23Z',
-      'lat': 51.54974,
-      'lng': 12.41036
+    "end": {
+      "timestamp": "2018-08-11T20:17:23Z",
+      "lat": 51.54974,
+      "lng": 12.41036
     },
-    'distance': 25.58952020275142
+    "distance": 25.59
   },
   {
-    'start': {
-      'timestamp': '2018-08-12T10:01:26Z',
-      'lat': 51.54974,
-      'lng': 12.41036
+    "start": {
+      "timestamp": "2018-08-12T10:01:26Z",
+      "lat": 51.54974,
+      "lng": 12.41036
     },
-    'end': {
-      'timestamp': '2018-08-12T10:07:20Z',
-      'lat': 51.55683,
-      'lng': 12.37432
+    "end": {
+      "timestamp": "2018-08-12T10:07:20Z",
+      "lat": 51.55683,
+      "lng": 12.37432
     },
-    'distance': 2903.3650662385558
+    "distance": 2903.365
   },
   {
-    'start': {
-      'timestamp': '2018-08-12T10:07:24Z',
-      'lat': 51.55683,
-      'lng': 12.37432
+    "start": {
+      "timestamp": "2018-08-12T10:07:24Z",
+      "lat": 51.55683,
+      "lng": 12.37432
     },
-    'end': {
-      'timestamp': '2018-08-12T10:26:24Z',
-      'lat': 51.59947,
-      'lng': 12.301
+    "end": {
+      "timestamp": "2018-08-12T10:26:24Z",
+      "lat": 51.59947,
+      "lng": 12.301
     },
-    'distance': 9365.210306853953
+    "distance": 9365.21
   },
   {
-    'start': {
-      'timestamp': '2018-08-12T10:26:30Z',
-      'lat': 51.59947,
-      'lng': 12.301
+    "start": {
+      "timestamp": "2018-08-12T10:26:30Z",
+      "lat": 51.59947,
+      "lng": 12.301
     },
-    'end': {
-      'timestamp': '2018-08-12T10:31:13Z',
-      'lat': 51.60519,
-      'lng': 12.3008
+    "end": {
+      "timestamp": "2018-08-12T10:31:13Z",
+      "lat": 51.60519,
+      "lng": 12.3008
     },
-    'distance': 868.7725034079747
+    "distance": 868.773
   },
   {
-    'start': {
-      'timestamp': '2018-08-12T10:34:25Z',
-      'lat': 51.60519,
-      'lng': 12.30082
+    "start": {
+      "timestamp": "2018-08-12T10:34:25Z",
+      "lat": 51.60519,
+      "lng": 12.30082
     },
-    'end': {
-      'timestamp': '2018-08-12T13:33:46Z',
-      'lat': 51.55938,
-      'lng': 12.41194
+    "end": {
+      "timestamp": "2018-08-12T13:33:46Z",
+      "lat": 51.55938,
+      "lng": 12.41194
     },
-    'distance': 13025.592430709718
+    "distance": 13025.592
   },
   {
-    'start': {
-      'timestamp': '2018-08-12T13:34:00Z',
-      'lat': 51.55938,
-      'lng': 12.41194
+    "start": {
+      "timestamp": "2018-08-12T13:34:00Z",
+      "lat": 51.55938,
+      "lng": 12.41194
     },
-    'end': {
-      'timestamp': '2018-08-12T13:37:47Z',
-      'lat': 51.55472,
-      'lng': 12.41444
+    "end": {
+      "timestamp": "2018-08-12T13:37:47Z",
+      "lat": 51.55472,
+      "lng": 12.41444
     },
-    'distance': 569.8700245812079
+    "distance": 569.87
   },
   {
-    'start': {
-      'timestamp': '2018-08-12T13:38:28Z',
-      'lat': 51.55472,
-      'lng': 12.41444
+    "start": {
+      "timestamp": "2018-08-12T13:38:28Z",
+      "lat": 51.55472,
+      "lng": 12.41444
     },
-    'end': {
-      'timestamp': '2018-08-12T13:44:46Z',
-      'lat': 51.54997,
-      'lng': 12.41032
+    "end": {
+      "timestamp": "2018-08-12T13:44:46Z",
+      "lat": 51.54997,
+      "lng": 12.41032
     },
-    'distance': 800.1806965274287
+    "distance": 800.181
   }
 ]
 ```
