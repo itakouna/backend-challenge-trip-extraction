@@ -164,10 +164,11 @@ In our review we will focus on:
 
 
 ## How to use waypoints processor
-- You can run `setup.sh` script to setup python enviroment.
-- You can check processor help
+- You you need to build docker image 
+    `docker build . -t backend-challenge-trip-extraction`
+- Then, use the docker image to run processor commands
+    `docker run backend-challenge-trip-extraction python process.py --help`
 ```
-python process.py --help
 usage: process.py [-h] [--stream] [--list] --source SOURCE
 
 extrace trips from a stream or list of Waypoints.
@@ -179,12 +180,8 @@ optional arguments:
   --source SOURCE  data source file with vaild json format
 ```
 
-## Test coverage
-- You can run test coverage
-  `pytest -v --cov=.  tests/`
-
 ## Extracted trips
-- Using stream processor `python process.py --stream --source data/waypoints.json`
+- Using stream processor `docker run backend-challenge-trip-extraction python process.py --stream --source data/waypoints.json`
 ```json
 [
   {
@@ -268,7 +265,7 @@ optional arguments:
 ]
 
 ```
-- Using list processor `python process.py --list --source data/waypoints.json`
+- Using list processor `docker run backend-challenge-trip-extraction python process.py --list --source data/waypoints.json`
 ```json
 [
   {
