@@ -75,9 +75,9 @@ class WaypointStreamProcessor(StreamProcessor):
             return False
 
         time_difference = datetime.strptime(
-            stop_points[-1].timestamp, "%Y-%m-%dT%H:%M:%S%z") - \
+            stop_points[-1].timestamp, "%Y-%m-%dT%H:%M:%S%Z") - \
             datetime.strptime(
-            stop_points[0].timestamp, "%Y-%m-%dT%H:%M:%S%z")
+            stop_points[0].timestamp, "%Y-%m-%dT%H:%M:%S%Z")
         return time_difference.total_seconds()/60 > self.STOP_TIME_IN_MINTUES
 
     def process_waypoint(self, waypoint: Waypoint) -> Union[Trip, None]:
@@ -142,9 +142,9 @@ class WaypointListProcessor(ListProcessor):
             return False
 
         time_difference = datetime.strptime(
-            stop_points[-1].timestamp, "%Y-%m-%dT%H:%M:%S%z") - \
+            stop_points[-1].timestamp, "%Y-%m-%dT%H:%M:%S%Z") - \
             datetime.strptime(
-            stop_points[0].timestamp, "%Y-%m-%dT%H:%M:%S%z")
+            stop_points[0].timestamp, "%Y-%m-%dT%H:%M:%S%Z")
         return time_difference.total_seconds()/60 > self.STOP_TIME_IN_MINTUES
 
     def get_trips(self) -> Tuple[Trip]:
