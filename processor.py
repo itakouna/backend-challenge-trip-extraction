@@ -109,7 +109,8 @@ class WaypointStreamProcessor(StreamProcessor):
             if (self.distance >= self.DISTANCE_SHOULD_BE_IGNORED_METERS):
                 start_point = self.move_points[0]
                 end_point = self.move_points[-1]
-                self.trip = Trip(self.distance, start_point, end_point)
+                self.trip = Trip(
+                    round(self.distance, 3), start_point, end_point)
 
             # Starting next trip
             # The last stop point should be the begining of the next trip
@@ -177,7 +178,8 @@ class WaypointListProcessor(ListProcessor):
                 if (distance >= self.DISTANCE_SHOULD_BE_IGNORED_METERS):
                     start_point = move_points[0]
                     end_point = move_points[-1]
-                    trips.append(Trip(distance, start_point, end_point))
+                    trips.append(Trip(
+                        round(distance, 3), start_point, end_point))
 
                 # Starting next trip
                 # The last stop point should be the begining of the next trip

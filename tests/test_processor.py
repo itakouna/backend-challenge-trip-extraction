@@ -37,7 +37,7 @@ class TestWaypointListProcessor(FixtureTestWaypointListProcessor):
             self.waypoints_list_without_stoping_point)
         assert list_processor.get_trips() == [
             Trip(
-                distance=567954.0964794011,
+                distance=567954.096,
                 start=Waypoint(timestamp='2018-08-10T20:10:22Z',
                                lat=54.54987, lng=12.41039),
                 end=Waypoint(timestamp='2018-08-10T20:22:22Z',
@@ -48,13 +48,13 @@ class TestWaypointListProcessor(FixtureTestWaypointListProcessor):
         list_processor = WaypointListProcessor(
             self.waypoints_list_with_two_trips)
         assert list_processor.get_trips() == [
-            Trip(distance=222593.124196202,
+            Trip(distance=222593.124,
                  start=Waypoint(timestamp='2018-08-10T20:04:22Z',
                                 lat=52.54987, lng=12.41039),
                  end=Waypoint(timestamp='2018-08-10T20:06:22Z',
                               lat=54.54987, lng=12.41039)
                  ),
-            Trip(distance=556802.4117352704,
+            Trip(distance=556802.412,
                  start=Waypoint(timestamp='2018-08-10T20:10:22Z',
                                 lat=54.54987, lng=12.41039),
                  end=Waypoint(timestamp='2018-08-10T20:17:22Z',
@@ -68,7 +68,7 @@ class TestWaypointListProcessor(FixtureTestWaypointListProcessor):
         list_processor = WaypointListProcessor(
             self.waypoints_list_starts_with_not_moving_points)
         assert list_processor.get_trips() == [
-            Trip(distance=779395.5359314724,
+            Trip(distance=779395.536,
                  start=Waypoint(timestamp='2018-08-10T20:10:22Z',
                                 lat=52.54987, lng=12.41039),
                  end=Waypoint(timestamp='2018-08-10T20:17:22Z',
@@ -115,7 +115,7 @@ class TestWaypointStreamProcessor(FixtureTestWaypointStreamProcessor):
             results.append(stream_processor.process_waypoint(waypoint))
         assert results == [
             None, None, None, None,
-            Trip(distance=556802.4117352711,
+            Trip(distance=556802.412,
                  start=Waypoint(timestamp='2018-08-10T20:10:22Z',
                                 lat=54.54987, lng=12.41039),
                  end=Waypoint(timestamp='2018-08-10T20:16:22Z',
@@ -129,7 +129,7 @@ class TestWaypointStreamProcessor(FixtureTestWaypointStreamProcessor):
             results.append(stream_processor.process_waypoint(waypoint))
         assert results == [
             None, None, None, None, None, None, None, None,
-            Trip(distance=556802.4117352706,
+            Trip(distance=556802.412,
                  start=Waypoint(timestamp='2018-08-10T20:16:22Z',
                                 lat=54.54987, lng=12.41039),
                  end=Waypoint(timestamp='2018-08-10T20:24:22Z',
@@ -143,14 +143,14 @@ class TestWaypointStreamProcessor(FixtureTestWaypointStreamProcessor):
             results.append(stream_processor.process_waypoint(waypoint))
         assert results == [
             None, None, None, None, None, None,
-            Trip(distance=445406.4349099722,
+            Trip(distance=445406.435,
                  start=Waypoint(timestamp='2018-08-10T20:15:22Z',
                                 lat=54.54987, lng=12.41039),
                  end=Waypoint(timestamp='2018-08-10T20:23:22Z',
                               lat=58.54987, lng=12.41039)
                  ),
             None, None,
-            Trip(distance=222809.0972828272,
+            Trip(distance=222809.097,
                  start=Waypoint(timestamp='2018-08-10T20:29:22Z',
                                 lat=58.54987, lng=12.41039),
                  end=Waypoint(timestamp='2018-08-10T20:31:22Z',
