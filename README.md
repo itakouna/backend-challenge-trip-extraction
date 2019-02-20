@@ -1,5 +1,5 @@
-![travis](https://api.travis-ci.com/itakouna/backend-challenge-trip-extraction.svg?branch=master)
-![codecov](https://codecov.io/gh/itakouna/backend-challenge-trip-extraction/branch/master/graph/badge.svg)
+![travis][https://api.travis-ci.com/itakouna/backend-challenge-trip-extraction.svg?branch=master](https://travis-ci.com/itakouna/backend-challenge-trip-extraction)
+![codecov][https://codecov.io/gh/itakouna/backend-challenge-trip-extraction/branch/master/graph/badge.svg](https://codecov.io/gh/itakouna/backend-challenge-trip-extraction)
 
 # Vimcar Coding Challenge: Trip Extraction
 
