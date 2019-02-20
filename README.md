@@ -177,7 +177,6 @@ optional arguments:
 ```
 
 ## Test coverage
-- You can check test coverage under [htmlcov/index.html](htmlcov/index.html)
 - You can run test coverage
   `pytest -v --cov=.  tests/`
 
