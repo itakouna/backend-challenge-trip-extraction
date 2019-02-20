@@ -2,6 +2,7 @@ from processor import WaypointListProcessor, WaypointStreamProcessor
 from utils import (load_from_json_file, convert_data_to_waypoints,
                    trip_waypoint_format)
 import argparse
+import json
 
 
 def main():
@@ -28,13 +29,13 @@ def main():
     if args.list:
         list_processor = WaypointListProcessor(waypoints)
         trips = list_processor.get_trips()
-        print(trip_waypoint_format(trips))
+        print(json.dumps(trip_waypoint_format(trips)))
     elif args.stream:
         stream_processor = WaypointStreamProcessor()
         trips = [stream_processor.process_waypoint(
             waypoint) for waypoint in waypoints]
         trips = filter(None, trips)
-        print(trip_waypoint_format(trips))
+        print(json.dumps(trip_waypoint_format(trips)))
     else:
         parser.print_help()
 

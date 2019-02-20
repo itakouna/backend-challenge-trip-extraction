@@ -181,7 +181,7 @@ optional arguments:
 ```
 
 ## Extracted trips
-- Using stream processor `docker run backend-challenge-trip-extraction python process.py --stream --source data/waypoints.json`
+- Using stream processor `docker run backend-challenge-trip-extraction python process.py --stream --source data/waypoints.json | jq '.'`
 ```json
 [
   {
@@ -265,7 +265,7 @@ optional arguments:
 ]
 
 ```
-- Using list processor `docker run backend-challenge-trip-extraction python process.py --list --source data/waypoints.json`
+- Using list processor `docker run backend-challenge-trip-extraction python process.py --list --source data/waypoints.json | jq '.'`
 ```json
 [
   {
