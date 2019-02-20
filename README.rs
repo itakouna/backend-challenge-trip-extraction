@@ -3,6 +3,7 @@
 
 .. image:: https://codecov.io/gh/itakouna/backend-challenge-trip-extraction/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/itakouna/backend-challenge-trip-extraction
+
 # Vimcar Coding Challenge: Trip Extraction
 
 One of Vimcar's successful products is the digital logbook. The purpose
